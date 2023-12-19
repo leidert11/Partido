@@ -68,6 +68,22 @@ public abstract class Partido implements Operaciones{
         this.fechaPartido = fechaPartido;
     }
 
+    public void registrarCestasLocal(int cestas) {
+        this.cestasLocal += cestas;
+    }
+
+    public void registrarCestasVisitante(int cestas) {
+        this.cestasVisitante += cestas;
+    }
+
+    public int obtenerCestasLocal() {
+        return cestasLocal;
+    }
+
+    public int obtenerCestasVisitante() {
+        return cestasVisitante;
+    }
+
     public abstract String mostrarPartido();
 
 }

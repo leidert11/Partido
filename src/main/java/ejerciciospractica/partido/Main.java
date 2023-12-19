@@ -21,38 +21,60 @@ public class Main {
             System.out.print("Ingrese su opción: ");
             
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer del scanner
+            scanner.nextLine();
             
             switch (opcion) {
                 case 1:
-                    // Registrar un partido de Liga
-                    System.out.print("Ingrese equipo local: ");
-                    String equipoLocalLiga = scanner.nextLine();
-                    System.out.print("Ingrese equipo visitante: ");
-                    String equipoVisitanteLiga = scanner.nextLine();
-                    System.out.print("Ingrese jornada: ");
-                    int jornada = scanner.nextInt();
-                    scanner.nextLine(); // Limpiar el buffer del scanner
-                    System.out.print("Ingrese fecha del partido: ");
-                    String fechaPartidoLiga = scanner.nextLine();
-
-                    partido = new PartidoLiga(equipoLocalLiga, equipoVisitanteLiga, jornada, fechaPartidoLiga);
-                    System.out.println("Partido de Liga registrado correctamente.");
-                    break;
+                System.out.print("Ingrese equipo local: ");
+                String equipoLocalLiga = scanner.nextLine();
+                System.out.print("Ingrese equipo visitante: ");
+                String equipoVisitanteLiga = scanner.nextLine();
+                System.out.print("Ingrese jornada: ");
+                int jornada = scanner.nextInt();
+                scanner.nextLine(); 
+                System.out.print("Ingrese fecha del partido: ");
+                String fechaPartidoLiga = scanner.nextLine();
+            
+                partido = new PartidoLiga(equipoLocalLiga, equipoVisitanteLiga, jornada, fechaPartidoLiga);
+                System.out.println("Partido de Liga registrado correctamente.");
+            
+                // Registro de cestas para el equipo local y visitante
+                System.out.print("Ingrese cestas del equipo local: ");
+                int cestasEquipoLocal = scanner.nextInt();
+                scanner.nextLine(); 
+                partido.registrarCestasLocal(cestasEquipoLocal);
+            
+                System.out.print("Ingrese cestas del equipo visitante: ");
+                int cestasEquipoVisitante = scanner.nextInt();
+                scanner.nextLine(); 
+                partido.registrarCestasVisitante(cestasEquipoVisitante);
+                break;
+            
                 case 2:
-                    // Registrar un partido de PlayOff
-                    System.out.print("Ingrese equipo local: ");
-                    String equipoLocalPlayOff = scanner.nextLine();
-                    System.out.print("Ingrese equipo visitante: ");
-                    String equipoVisitantePlayOff = scanner.nextLine();
-                    System.out.print("Ingrese ronda: ");
-                    String ronda = scanner.nextLine();
-                    System.out.print("Ingrese fecha del partido: ");
-                    String fechaPartidoPlayOff = scanner.nextLine();
-
-                    partido = new PartidoPlayoff(equipoLocalPlayOff, equipoVisitantePlayOff, ronda, fechaPartidoPlayOff);
-                    System.out.println("Partido de PlayOff registrado correctamente.");
-                    break;
+                System.out.print("Ingrese equipo local: ");
+                String equipoLocalPlayOff = scanner.nextLine();
+                System.out.print("Ingrese equipo visitante: ");
+                String equipoVisitantePlayOff = scanner.nextLine();
+                System.out.print("Ingrese ronda: ");
+                String ronda = scanner.nextLine();
+                System.out.print("Ingrese fecha del partido: ");
+                String fechaPartidoPlayOff = scanner.nextLine();
+            
+                partido = new PartidoPlayoff(equipoLocalPlayOff, equipoVisitantePlayOff, ronda, fechaPartidoPlayOff);
+                System.out.println("Partido de PlayOff registrado correctamente.");
+            
+                // Registro de cestas para el equipo local y visitante
+                System.out.print("Ingrese cestas del equipo local: ");
+                cestasEquipoLocal = scanner.nextInt();
+                scanner.nextLine(); 
+                partido.registrarCestasLocal(cestasEquipoLocal);
+            
+                System.out.print("Ingrese cestas del equipo visitante: ");
+                cestasEquipoVisitante = scanner.nextInt();
+                scanner.nextLine(); 
+                partido.registrarCestasVisitante(cestasEquipoVisitante);
+                break;
+            
                 case 3:
                     // Finalizar un partido
                     if (partido != null) {
@@ -63,7 +85,6 @@ public class Main {
                     }
                     break;
                 case 4:
-                    // Mostrar ganador del partido
                     if (partido != null) {
                         String ganador = partido.obtenerGanador();
                         System.out.println("El ganador del partido es: " + ganador);
@@ -72,7 +93,6 @@ public class Main {
                     }
                     break;
                 case 5:
-                    // Mostrar información del partido
                     if (partido != null) {
                         String informacionPartido = partido.mostrarPartido();
                         System.out.println("Información del partido:");

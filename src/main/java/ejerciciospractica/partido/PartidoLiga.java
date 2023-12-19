@@ -54,8 +54,8 @@ public class PartidoLiga extends Partido {
 
     @Override
     public String obtenerResultado() {
-       return "El resultado es: " + super.getEquipoLocal() + " " + super.getCestasLocal() +
-                " - " + super.getEquipoVisitante() + " " + super.getCestasVisitante();
+        return "El resultado es: " + super.getEquipoLocal() + " " + super.obtenerCestasLocal() +
+                " - " + super.getEquipoVisitante() + " " + super.obtenerCestasVisitante();
     }
 
 }
