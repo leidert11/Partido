@@ -70,5 +70,4 @@ public abstract class Partido implements Operaciones{
 
     public abstract String mostrarPartido();
 
-
 }

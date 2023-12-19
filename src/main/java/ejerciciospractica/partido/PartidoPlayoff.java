@@ -60,8 +60,4 @@ public class PartidoPlayoff extends Partido{
 
 
 }
-public interface Operaciones {
-    String obtenerResultado();
-    String obtenerGanador();
-    boolean finalizarPartido();
-}
+
