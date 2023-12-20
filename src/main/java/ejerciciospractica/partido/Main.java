@@ -9,8 +9,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Partido partido = null;
 
-        int opcion;
-        do {
+
+        while (true) {
             System.out.println("---- Menú de Gestión de Partidos ----");
             System.out.println("1. Registrar un partido de Liga");
             System.out.println("2. Registrar un partido de PlayOff");
@@ -19,9 +19,10 @@ public class Main {
             System.out.println("5. Mostrar información del partido");
             System.out.println("0. Salir");
             System.out.print("Ingrese su opción: ");
-            
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); 
+
             
             switch (opcion) {
                 case 1:
@@ -38,7 +39,6 @@ public class Main {
                 partido = new PartidoLiga(equipoLocalLiga, equipoVisitanteLiga, jornada, fechaPartidoLiga);
                 System.out.println("Partido de Liga registrado correctamente.");
             
-                // Registro de cestas para el equipo local y visitante
                 System.out.print("Ingrese cestas del equipo local: ");
                 int cestasEquipoLocal = scanner.nextInt();
                 scanner.nextLine(); 
@@ -63,7 +63,6 @@ public class Main {
                 partido = new PartidoPlayoff(equipoLocalPlayOff, equipoVisitantePlayOff, ronda, fechaPartidoPlayOff);
                 System.out.println("Partido de PlayOff registrado correctamente.");
             
-                // Registro de cestas para el equipo local y visitante
                 System.out.print("Ingrese cestas del equipo local: ");
                 cestasEquipoLocal = scanner.nextInt();
                 scanner.nextLine(); 
@@ -76,7 +75,6 @@ public class Main {
                 break;
             
                 case 3:
-                    // Finalizar un partido
                     if (partido != null) {
                         partido.finalizarPartido();
                         System.out.println("Partido finalizado.");
@@ -102,14 +100,14 @@ public class Main {
                     }
                     break;
                 case 0:
-                    System.out.println("Saliendo del sistema de gestión de partidos...");
-                    break;
+                  System.out.println("Saliendo del sistema de gestión de partidos...");
+                    scanner.close();
+                    return;
+
                 default:
                     System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
                     break;
             }
-        } while (opcion != 0);
-
-        scanner.close();
+        }
     }
 }
